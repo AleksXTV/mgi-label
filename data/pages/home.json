@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "home",
+  "enabled": true,
+  "seo": {
+    "title": {
+      "en": "M.G.I. Records — Music Beyond Boundaries",
+      "ru": "M.G.I. Records — Музыка без границ"
+    },
+    "description": {
+      "en": "Independent music, sound, visual art and emerging technologies.",
+      "ru": "Независимая музыка, звук, визуальное искусство и новые технологии."
+    },
+    "image": "placeholder-home.svg"
+  },
+  "blocks": [
+    {
+      "id": "home-intro",
+      "enabled": true,
+      "layout": "hero",
+      "title": {
+        "en": "Music Beyond Boundaries",
+        "ru": "Музыка без границ"
+      },
+      "text": {
+        "en": [
+          "We create music as a space for experimentation — without fixed genres, formulas, or predetermined rules.",
+          "Our label brings together original music, sound, visual art, and emerging technologies. It is a place for projects that may sound completely different from one another, yet share one essential quality: each of them grows from its own creative world rather than from the need to follow a trend.",
+          "Today, our creative space is home to VitaSun and Fluidium.",
+          "From atmospheric songs and emotional electronic music to club-driven sound, visual experiments, and unconventional audiovisual stories, we prefer exploring new territory rather than staying inside a single genre."
+        ],
+        "ru": [
+          "Мы создаём музыку как пространство для эксперимента — без жёстких жанров, формул и заранее заданных правил.",
+          "Наш лейбл объединяет авторскую музыку, звук, визуальное искусство и новые технологии. Здесь могут соседствовать проекты, совершенно непохожие друг на друга, но объединённые одним важным качеством: каждый из них рождается из собственного творческого мира, а не из необходимости следовать тренду.",
+          "Сегодня в нашем творческом пространстве живут VitaSun и Fluidium.",
+          "От атмосферных песен и эмоциональной электронной музыки до клубного звучания, визуальных экспериментов и необычных аудиовизуальных историй — нам интереснее исследовать новые территории, чем оставаться внутри одного жанра."
+        ]
+      },
+      "media": [
+        {
+          "type": "image",
+          "source": "placeholder-home.svg",
+          "alt": {
+            "en": "Abstract M.G.I. Records placeholder",
+            "ru": "Абстрактная заглушка M.G.I. Records"
+          }
+        }
+      ]
+    },
+    {
+      "id": "home-statement",
+      "enabled": true,
+      "layout": "statement",
+      "text": {
+        "en": [
+          "Listen. Watch. Discover.",
+          "Music begins where definitions end."
+        ],
+        "ru": [
+          "Слушай. Смотри. Открывай.",
+          "Музыка начинается там, где заканчиваются определения."
+        ]
+      }
+    }
+  ]
+}

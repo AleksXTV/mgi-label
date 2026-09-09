@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "videos",
+  "enabled": true,
+  "seo": {
+    "title": {
+      "en": "Videos — M.G.I. Records",
+      "ru": "Видео — M.G.I. Records"
+    },
+    "description": {
+      "en": "Video experiments and embedded visual work.",
+      "ru": "Видеоэксперименты и встроенные визуальные работы."
+    },
+    "image": "placeholder-videos.svg"
+  },
+  "blocks": [
+    {
+      "id": "videos-intro",
+      "enabled": true,
+      "layout": "statement",
+      "title": {
+        "en": "Sound Becomes Image.",
+        "ru": "Звук становится изображением."
+      },
+      "text": {
+        "en": "Temporary public videos demonstrate the responsive embedded video grid. Replace their URLs in /configure at any time.",
+        "ru": "Временные публичные видео демонстрируют адаптивную сетку встроенных проигрывателей. Их URL можно в любой момент заменить через /configure."
+      }
+    },
+    {
+      "id": "video-library",
+      "enabled": true,
+      "layout": "video-grid",
+      "title": {
+        "en": "Videos",
+        "ru": "Видео"
+      },
+      "media": [
+        {
+          "type": "embed",
+          "source": "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+          "title": {
+            "en": "Video Study 01",
+            "ru": "Видеоэтюд 01"
+          },
+          "description": {
+            "en": "Public YouTube placeholder",
+            "ru": "Публичная заглушка YouTube"
+          }
+        },
+        {
+          "type": "embed",
+          "source": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "title": {
+            "en": "Video Study 02",
+            "ru": "Видеоэтюд 02"
+          },
+          "description": {
+            "en": "Public YouTube placeholder",
+            "ru": "Публичная заглушка YouTube"
+          }
+        },
+        {
+          "type": "embed",
+          "source": "https://vimeo.com/76979871",
+          "title": {
+            "en": "Vimeo Study",
+            "ru": "Этюд Vimeo"
+          },
+          "description": {
+            "en": "Public Vimeo placeholder",
+            "ru": "Публичная заглушка Vimeo"
+          }
+        }
+      ]
+    }
+  ]
+}

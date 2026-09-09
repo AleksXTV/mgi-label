@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "id": "about",
+  "enabled": true,
+  "seo": {
+    "title": {
+      "en": "About — M.G.I. Records",
+      "ru": "О нас — M.G.I. Records"
+    },
+    "description": {
+      "en": "Independent by choice. Sound, image, technology and creative freedom.",
+      "ru": "Независимость как выбор. Звук, изображение, технологии и творческая свобода."
+    },
+    "image": "placeholder-about.svg"
+  },
+  "blocks": [
+    {
+      "id": "about-intro",
+      "enabled": true,
+      "layout": "hero",
+      "title": {
+        "en": "Independent by Choice",
+        "ru": "Независимость как выбор"
+      },
+      "text": {
+        "en": [
+          "We did not create this project to build another music factory.",
+          "We wanted to create a place where music could remain music.",
+          "A place where every idea does not have to be tested against a genre, an algorithm, a radio format, or the latest trend before it is allowed to exist.",
+          "We believe some of the most interesting things happen when nobody knows exactly how an experiment is going to end."
+        ],
+        "ru": [
+          "Мы создавали этот проект не для того, чтобы построить ещё одну музыкальную фабрику.",
+          "Нам хотелось создать место, где музыка может оставаться музыкой.",
+          "Место, где каждой идее не нужно проходить проверку жанром, алгоритмом, радиоформатом или последним трендом прежде, чем она получит право на существование.",
+          "Мы верим, что самые интересные вещи часто происходят тогда, когда никто заранее не знает, чем закончится эксперимент."
+        ]
+      },
+      "media": [
+        {
+          "type": "image",
+          "source": "placeholder-about.svg",
+          "alt": {
+            "en": "M.G.I. Records placeholder",
+            "ru": "Заглушка M.G.I. Records"
+          }
+        }
+      ]
+    },
+    {
+      "id": "make-sound",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "We Make Sound",
+        "ru": "Мы создаём звук"
+      },
+      "text": {
+        "en": [
+          "Sometimes everything begins with a few notes.",
+          "Sometimes with an accidental sound.",
+          "Sometimes with a photograph, a dream, a sentence, or an image that refuses to disappear from memory.",
+          "Gradually, music begins to grow around it.",
+          "And sometimes an entire world grows with the music."
+        ],
+        "ru": [
+          "Иногда всё начинается с нескольких нот.",
+          "Иногда — со случайного звука.",
+          "Иногда — с фотографии, сна, фразы или образа, который никак не исчезает из памяти.",
+          "Постепенно вокруг него начинает расти музыка.",
+          "А иногда вместе с музыкой вырастает целый мир."
+        ]
+      }
+    },
+    {
+      "id": "make-images",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "We Make Images",
+        "ru": "Мы создаём изображения"
+      },
+      "text": {
+        "en": [
+          "For us, sound and image do not exist separately.",
+          "A music video is not simply a way to put a song on YouTube.",
+          "Artwork is not simply a square image placed next to a title.",
+          "A visual language can continue the work and tell the part of the story that cannot be heard.",
+          "That is why video, photography, graphics, animation, and new digital tools are as much a part of our creative process as microphones, synthesizers, and musical instruments."
+        ],
+        "ru": [
+          "Для нас звук и изображение не существуют отдельно.",
+          "Музыкальное видео — это не просто способ разместить песню на YouTube.",
+          "Обложка — не просто квадратная картинка рядом с названием.",
+          "Визуальный язык может продолжить произведение и рассказать ту часть истории, которую невозможно услышать.",
+          "Поэтому видео, фотография, графика, анимация и новые цифровые инструменты являются такой же частью нашего творческого процесса, как микрофоны, синтезаторы и музыкальные инструменты."
+        ]
+      }
+    },
+    {
+      "id": "experiment",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "We Experiment",
+        "ru": "Мы экспериментируем"
+      },
+      "text": {
+        "en": [
+          "We use traditional recording techniques.",
+          "We use digital technologies.",
+          "We can record a live instrument and, minutes later, create a completely artificial sound that has never existed in the physical world.",
+          "We are not interested in choosing between old and new.",
+          "We are interested in the result.",
+          "If a technology helps communicate an idea, it becomes an instrument."
+        ],
+        "ru": [
+          "Мы используем традиционные техники записи.",
+          "Мы используем цифровые технологии.",
+          "Мы можем записать живой инструмент, а через несколько минут создать полностью искусственный звук, который никогда не существовал в физическом мире.",
+          "Нам неинтересно выбирать между старым и новым.",
+          "Нас интересует результат.",
+          "Если технология помогает передать идею, она становится инструментом."
+        ]
+      }
+    },
+    {
+      "id": "studio",
+      "enabled": true,
+      "layout": "split-right",
+      "title": {
+        "en": "The Studio",
+        "ru": "Студия"
+      },
+      "text": {
+        "en": [
+          "The studio is the center of this creative space.",
+          "It is where music is recorded, arrangements take shape, projects are assembled, images are created, and decisions are made that sometimes completely transform the original idea.",
+          "But the most important equipment here is not the microphones, cameras, synthesizers, or computers.",
+          "It is the freedom to try something.",
+          "To make a mistake.",
+          "To rebuild it.",
+          "And eventually to hear what previously existed only in your imagination."
+        ],
+        "ru": [
+          "Студия — центр этого творческого пространства.",
+          "Здесь записывается музыка, обретают форму аранжировки, собираются проекты, создаются изображения и принимаются решения, которые иногда полностью меняют первоначальную идею.",
+          "Но самое важное оборудование здесь — не микрофоны, камеры, синтезаторы или компьютеры.",
+          "Это свобода попробовать.",
+          "Ошибиться.",
+          "Собрать заново.",
+          "И в конце концов услышать то, что прежде существовало только в воображении."
+        ]
+      },
+      "media": [
+        {
+          "type": "image",
+          "source": "placeholder-studio.svg",
+          "alt": {
+            "en": "Studio placeholder",
+            "ru": "Заглушка студии"
+          }
+        }
+      ]
+    },
+    {
+      "id": "no-borders",
+      "enabled": true,
+      "layout": "statement",
+      "title": {
+        "en": "No Borders. No Formulas.",
+        "ru": "Без границ. Без формул."
+      },
+      "text": {
+        "en": [
+          "Today, our creative space is home to VitaSun and Fluidium.",
+          "Tomorrow, other projects, other people, and completely different music may appear here.",
+          "We do not want to decide in advance what that music is supposed to sound like.",
+          "Because creativity has an unfortunate habit of becoming less interesting the moment someone explains exactly what it is supposed to become.",
+          "We make music.",
+          "We create worlds.",
+          "Everything else is just a label."
+        ],
+        "ru": [
+          "Сегодня в нашем творческом пространстве живут VitaSun и Fluidium.",
+          "Завтра здесь могут появиться другие проекты, другие люди и совершенно другая музыка.",
+          "Мы не хотим заранее решать, как эта музыка должна звучать.",
+          "Потому что у творчества есть неприятная привычка становиться менее интересным в тот момент, когда кто-то точно объясняет, каким оно должно стать.",
+          "Мы создаём музыку.",
+          "Мы создаём миры.",
+          "Всё остальное — лишь ярлык."
+        ]
+      }
+    },
+    {
+      "id": "contact-social",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "Contact & Social",
+        "ru": "Контакты и социальные сети"
+      },
+      "text": {
+        "en": "Contact details and social links are intentionally kept in this section. Replace this placeholder block in about.json when the final accounts are ready.",
+        "ru": "Контактные данные и ссылки на социальные сети намеренно находятся только в этом разделе. Замените этот блок-заглушку в about.json, когда финальные аккаунты будут готовы."
+      }
+    }
+  ]
+}

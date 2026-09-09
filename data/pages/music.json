@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "music",
+  "enabled": true,
+  "seo": {
+    "title": {
+      "en": "Music — M.G.I. Records",
+      "ru": "Музыка — M.G.I. Records"
+    },
+    "description": {
+      "en": "Listen to selected music and embedded releases.",
+      "ru": "Слушайте выбранную музыку и встроенные релизы."
+    },
+    "image": "placeholder-music.svg"
+  },
+  "blocks": [
+    {
+      "id": "music-intro",
+      "enabled": true,
+      "layout": "hero",
+      "title": {
+        "en": "Music in Motion",
+        "ru": "Музыка в движении"
+      },
+      "text": {
+        "en": "A temporary listening room for the first version of the site. These public embeds are placeholders and can be replaced directly in JSON through /configure.",
+        "ru": "Временная музыкальная витрина первой версии сайта. Эти публичные встраиваемые материалы используются как заглушки и могут быть заменены напрямую в JSON через /configure."
+      },
+      "media": [
+        {
+          "type": "image",
+          "source": "placeholder-music.svg",
+          "alt": {
+            "en": "Music placeholder",
+            "ru": "Музыкальная заглушка"
+          }
+        }
+      ]
+    },
+    {
+      "id": "music-demo",
+      "enabled": true,
+      "layout": "music-showcase",
+      "title": {
+        "en": "Listen",
+        "ru": "Слушать"
+      },
+      "text": {
+        "en": "Different services, one lightweight content model. Players load only after interaction.",
+        "ru": "Разные сервисы — одна лёгкая модель контента. Плееры загружаются только после взаимодействия."
+      },
+      "media": [
+        {
+          "type": "embed",
+          "source": "https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT",
+          "title": {
+            "en": "Spotify demo",
+            "ru": "Демо Spotify"
+          },
+          "description": {
+            "en": "Public placeholder embed",
+            "ru": "Публичная встроенная заглушка"
+          }
+        },
+        {
+          "type": "embed",
+          "source": "https://soundcloud.com/forss/flickermood",
+          "title": {
+            "en": "SoundCloud demo",
+            "ru": "Демо SoundCloud"
+          },
+          "description": {
+            "en": "Flickermood by Forss — public example used in SoundCloud developer documentation.",
+            "ru": "Flickermood by Forss — публичный пример из документации SoundCloud."
+          }
+        },
+        {
+          "type": "embed",
+          "source": "https://hler.bandcamp.com/album/music-for-programming-episode-0001",
+          "title": {
+            "en": "Bandcamp demo",
+            "ru": "Демо Bandcamp"
+          },
+          "description": {
+            "en": "Public Bandcamp placeholder",
+            "ru": "Публичная заглушка Bandcamp"
+          }
+        }
+      ]
+    }
+  ]
+}

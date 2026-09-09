@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "defaultLanguage": "en",
+  "defaultTheme": "dark",
+  "languages": [
+    {
+      "code": "en",
+      "label": "ENG",
+      "flag": "🇺🇸",
+      "order": 1,
+      "enabled": true
+    },
+    {
+      "code": "ru",
+      "label": "RUS",
+      "flag": "🇷🇺",
+      "order": 2,
+      "enabled": true
+    }
+  ],
+  "themes": [
+    {
+      "id": "dark",
+      "icon": "moon",
+      "order": 1,
+      "enabled": true,
+      "name": {
+        "en": "Dark",
+        "ru": "Тёмная"
+      }
+    },
+    {
+      "id": "light",
+      "icon": "sun",
+      "order": 2,
+      "enabled": true,
+      "name": {
+        "en": "Light",
+        "ru": "Светлая"
+      }
+    }
+  ],
+  "menu": [
+    {
+      "id": "home",
+      "order": 1,
+      "route": "/",
+      "page": "home",
+      "enabled": true,
+      "title": {
+        "en": "HOME",
+        "ru": "ГЛАВНАЯ"
+      }
+    },
+    {
+      "id": "artists",
+      "order": 2,
+      "route": "/artists",
+      "page": "artists",
+      "enabled": true,
+      "title": {
+        "en": "ARTISTS",
+        "ru": "АРТИСТЫ"
+      }
+    },
+    {
+      "id": "music",
+      "order": 3,
+      "route": "/music",
+      "page": "music",
+      "enabled": true,
+      "title": {
+        "en": "MUSIC",
+        "ru": "МУЗЫКА"
+      }
+    },
+    {
+      "id": "videos",
+      "order": 4,
+      "route": "/videos",
+      "page": "videos",
+      "enabled": true,
+      "title": {
+        "en": "VIDEOS",
+        "ru": "ВИДЕО"
+      }
+    },
+    {
+      "id": "services",
+      "order": 5,
+      "route": "/services",
+      "page": "services",
+      "enabled": true,
+      "title": {
+        "en": "SERVICES",
+        "ru": "УСЛУГИ"
+      }
+    },
+    {
+      "id": "about",
+      "order": 6,
+      "route": "/about",
+      "page": "about",
+      "enabled": true,
+      "title": {
+        "en": "ABOUT",
+        "ru": "О НАС"
+      }
+    }
+  ]
+}

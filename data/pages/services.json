@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "id": "services",
+  "enabled": true,
+  "seo": {
+    "title": {
+      "en": "Services — M.G.I. Records",
+      "ru": "Услуги — M.G.I. Records"
+    },
+    "description": {
+      "en": "From the first idea to the final frame.",
+      "ru": "От первой идеи до финального кадра."
+    },
+    "image": "placeholder-services.svg"
+  },
+  "blocks": [
+    {
+      "id": "services-intro",
+      "enabled": true,
+      "layout": "hero",
+      "title": {
+        "en": "From the First Idea to the Final Frame",
+        "ru": "От первой идеи до финального кадра"
+      },
+      "text": {
+        "en": [
+          "Our studio is a space for creating complete musical and visual projects.",
+          "We can become involved at a single stage of production or work with an artist throughout the entire process — from the first idea and recording session to the finished track, video, and release-ready visual content."
+        ],
+        "ru": [
+          "Наша студия — пространство для создания законченных музыкальных и визуальных проектов.",
+          "Мы можем подключиться на отдельном этапе или пройти с артистом весь путь — от первой идеи и сессии записи до готового трека, видео и визуального контента, подготовленного к релизу."
+        ]
+      },
+      "media": [
+        {
+          "type": "image",
+          "source": "placeholder-services.svg",
+          "alt": {
+            "en": "Studio placeholder",
+            "ru": "Заглушка студии"
+          }
+        }
+      ]
+    },
+    {
+      "id": "recording",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "Recording",
+        "ru": "Запись"
+      },
+      "subtitle": {
+        "en": "Professional Recording",
+        "ru": "Профессиональная запись"
+      },
+      "text": {
+        "en": [
+          "Professional recording of vocals, musical instruments, and other sound sources.",
+          "We focus not only on technical quality, but also on performance, atmosphere, character, and the small details that make a recording feel alive."
+        ],
+        "ru": [
+          "Профессиональная запись вокала, музыкальных инструментов и других источников звука.",
+          "Мы уделяем внимание не только техническому качеству, но и исполнению, атмосфере, характеру и тем небольшим деталям, благодаря которым запись ощущается живой."
+        ]
+      }
+    },
+    {
+      "id": "production",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "Music Production",
+        "ru": "Музыкальный продакшн"
+      },
+      "subtitle": {
+        "en": "Production & Arrangement",
+        "ru": "Продакшн и аранжировка"
+      },
+      "text": {
+        "en": [
+          "We help transform a musical idea into a complete composition.",
+          "This may include arrangement, sound selection, electronic programming, song structure, production decisions, and the development of the original musical concept.",
+          "A project can begin with a nearly finished demo — or with nothing more than a melody, a lyric, or an idea."
+        ],
+        "ru": [
+          "Мы помогаем превратить музыкальную идею в законченную композицию.",
+          "Это может включать аранжировку, подбор звуков, электронное программирование, структуру песни, продюсерские решения и развитие первоначальной музыкальной идеи.",
+          "Проект может начаться почти с готового демо — или всего лишь с мелодии, текста или идеи."
+        ]
+      }
+    },
+    {
+      "id": "mixing",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "Mixing",
+        "ru": "Сведение"
+      },
+      "subtitle": {
+        "en": "Mixing",
+        "ru": "Сведение"
+      },
+      "text": {
+        "en": [
+          "We bring individual tracks together into one coherent musical space.",
+          "The process includes balancing instruments and vocals, dynamic processing, frequency shaping, spatial design, effects, and the overall emotional character of the mix.",
+          "Our goal is not simply to make a recording loud or technically correct.",
+          "The goal is to preserve its identity."
+        ],
+        "ru": [
+          "Мы объединяем отдельные дорожки в единое музыкальное пространство.",
+          "Процесс включает баланс инструментов и вокала, динамическую обработку, частотную коррекцию, работу с пространством, эффектами и общим эмоциональным характером микса.",
+          "Наша цель — не просто сделать запись громкой или технически правильной.",
+          "Цель — сохранить её индивидуальность."
+        ]
+      }
+    },
+    {
+      "id": "mastering",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "Mastering",
+        "ru": "Мастеринг"
+      },
+      "subtitle": {
+        "en": "Mastering",
+        "ru": "Мастеринг"
+      },
+      "text": {
+        "en": [
+          "Final preparation of music for release.",
+          "We work with dynamics, tonal balance, loudness, consistency, and translation across playback systems, taking into account the requirements of modern digital platforms."
+        ],
+        "ru": [
+          "Финальная подготовка музыки к релизу.",
+          "Мы работаем с динамикой, тональным балансом, громкостью, целостностью и тем, как материал звучит на разных системах воспроизведения, учитывая требования современных цифровых платформ."
+        ]
+      }
+    },
+    {
+      "id": "video-production",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "Video Production",
+        "ru": "Видеопроизводство"
+      },
+      "subtitle": {
+        "en": "Music Videos & Visual Content",
+        "ru": "Музыкальные видео и визуальный контент"
+      },
+      "text": {
+        "en": [
+          "Music no longer exists through sound alone.",
+          "We create visual content for music projects, including music videos, visualizers, short promotional films, teasers, animated artwork, and content for social platforms.",
+          "Depending on the project, production may combine traditional filming, editing, motion graphics, visual effects, and modern generative technologies."
+        ],
+        "ru": [
+          "Сегодня музыка существует не только через звук.",
+          "Мы создаём визуальный контент для музыкальных проектов: клипы, визуализаторы, короткие промофильмы, тизеры, анимированные обложки и материалы для социальных платформ.",
+          "В зависимости от проекта производство может объединять традиционную съёмку, монтаж, motion-графику, визуальные эффекты и современные генеративные технологии."
+        ]
+      }
+    },
+    {
+      "id": "creative-direction",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "Creative Direction",
+        "ru": "Креативное направление"
+      },
+      "subtitle": {
+        "en": "Visual Concepts",
+        "ru": "Визуальные концепции"
+      },
+      "text": {
+        "en": [
+          "If a project already has music but has not yet found its visual identity, we can help develop one.",
+          "A video concept, visual atmosphere, color palette, imagery, composition, and overall aesthetic can all be designed as one creative system connected directly to the music."
+        ],
+        "ru": [
+          "Если музыка уже существует, но проект ещё не нашёл свою визуальную идентичность, мы можем помочь её сформировать.",
+          "Концепция видео, визуальная атмосфера, цветовая палитра, образы, композиция и общая эстетика могут быть разработаны как единая творческая система, напрямую связанная с музыкой."
+        ]
+      }
+    },
+    {
+      "id": "custom",
+      "enabled": true,
+      "layout": "editorial",
+      "title": {
+        "en": "Custom Projects",
+        "ru": "Нестандартные проекты"
+      },
+      "subtitle": {
+        "en": "Something Different?",
+        "ru": "Что-то другое?"
+      },
+      "text": {
+        "en": [
+          "Not every creative project fits neatly into a predefined category.",
+          "If you need original music for film or video, a custom soundtrack, an unconventional audiovisual experiment, sound design, or something that cannot easily be described in a single phrase — tell us about it.",
+          "We are especially interested in projects for which no ready-made category exists."
+        ],
+        "ru": [
+          "Не каждый творческий проект помещается в заранее определённую категорию.",
+          "Если вам нужна оригинальная музыка для фильма или видео, авторский саундтрек, необычный аудиовизуальный эксперимент, саунд-дизайн или что-то, что трудно описать одной фразой, — расскажите нам об этом.",
+          "Нам особенно интересны проекты, для которых ещё не придумано готовой категории."
+        ]
+      }
+    },
+    {
+      "id": "service-request",
+      "enabled": true,
+      "layout": "contact-form",
+      "title": {
+        "en": "Have a project in mind?",
+        "ru": "Есть идея проекта?"
+      },
+      "text": {
+        "en": "Tell us what you want to create. Your request is saved on the server first and then delivered to the configured Telegram recipients.",
+        "ru": "Расскажите, что вы хотите создать. Сначала заявка сохраняется на сервере, а затем отправляется настроенным получателям в Telegram."
+      },
+      "form": {
+        "subject": {
+          "en": "Subject",
+          "ru": "Тема"
+        },
+        "contacts": {
+          "en": "Contact details (e-mail, phone, messengers)",
+          "ru": "Контактные данные (e-mail, телефон, мессенджеры)"
+        },
+        "message": {
+          "en": "Message",
+          "ru": "Сообщение"
+        },
+        "submit": {
+          "en": "Send",
+          "ru": "Отправить"
+        },
+        "success": {
+          "en": "Your message has been sent successfully.",
+          "ru": "Ваше сообщение успешно отправлено."
+        },
+        "error": {
+          "en": "Unable to send the message. Please try again later.",
+          "ru": "Не удалось отправить сообщение. Попробуйте ещё раз позже."
+        }
+      }
+    }
+  ]
+}

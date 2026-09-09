@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "id": "artists",
+  "enabled": true,
+  "seo": {
+    "title": {
+      "en": "Artists — M.G.I. Records",
+      "ru": "Артисты — M.G.I. Records"
+    },
+    "description": {
+      "en": "Different worlds. One creative space.",
+      "ru": "Разные миры. Одно творческое пространство."
+    },
+    "image": "placeholder-artists.svg"
+  },
+  "blocks": [
+    {
+      "id": "artists-intro",
+      "enabled": true,
+      "layout": "statement",
+      "title": {
+        "en": "Different Worlds. One Creative Space.",
+        "ru": "Разные миры. Одно творческое пространство."
+      },
+      "text": {
+        "en": [
+          "Our projects exist independently from one another.",
+          "Each has its own sound, visual identity, and way of telling stories.",
+          "Their differences are exactly what brings them together."
+        ],
+        "ru": [
+          "Наши проекты существуют независимо друг от друга.",
+          "У каждого — собственное звучание, визуальная идентичность и способ рассказывать истории.",
+          "Именно различия и объединяют их."
+        ]
+      }
+    },
+    {
+      "id": "vitasun",
+      "enabled": true,
+      "layout": "split-left",
+      "title": {
+        "en": "VitaSun",
+        "ru": "VitaSun"
+      },
+      "subtitle": {
+        "en": "Songs Between Reality, Memory and Imagination",
+        "ru": "Песни между реальностью, памятью и воображением"
+      },
+      "text": {
+        "en": [
+          "VitaSun is a music project whose story began long before its first official releases.",
+          "Its roots go back to Siberia, where a passion for music started at a young age. Later, life and creative work continued in Southeast Asia, bringing together two very different environments — the cold northern world of the past and the atmosphere of tropical Asia.",
+          "That contrast gradually became part of VitaSun's creative identity.",
+          "VitaSun deliberately avoids being confined to a single genre.",
+          "Electronic production may coexist with pop songwriting, atmospheric textures, vocal-driven compositions, and experimental elements.",
+          "At the center of the project is not genre, but story.",
+          "VitaSun's music explores human relationships, distance, inner states, memories, and those moments that are often easier to express through music than through words.",
+          "Released works include Our Hearts, Phantom Fantasy, I'll Keep This Light Ever, You're Not For Me, My Fragile Diamond, Di-Zi, and Over the Clouds.",
+          "Each new release is another attempt to discover a new sound without simply repeating the previous one."
+        ],
+        "ru": [
+          "VitaSun — музыкальный проект, история которого началась задолго до первых официальных релизов.",
+          "Его истоки уходят в Сибирь, где интерес к музыке появился ещё в ранние годы. Позже жизнь и творческая работа продолжились в Юго-Восточной Азии, соединив два совершенно разных пространства — холодный северный мир прошлого и атмосферу тропической Азии.",
+          "Постепенно этот контраст стал частью творческой идентичности VitaSun.",
+          "VitaSun сознательно избегает рамок одного жанра.",
+          "Электронный продакшн может соседствовать с поп-сонграйтингом, атмосферными текстурами, вокальными композициями и экспериментальными элементами.",
+          "В центре проекта находится не жанр, а история.",
+          "Музыка VitaSun исследует человеческие отношения, расстояние, внутренние состояния, воспоминания и те моменты, которые порой легче выразить музыкой, чем словами.",
+          "Среди выпущенных работ — Our Hearts, Phantom Fantasy, I’ll Keep This Light Ever, You’re Not For Me, My Fragile Diamond, Di-Zi и Over the Clouds.",
+          "Каждый новый релиз — ещё одна попытка найти новое звучание, не повторяя предыдущий."
+        ]
+      },
+      "media": [
+        {
+          "type": "image",
+          "source": "placeholder-vitasun.svg",
+          "alt": {
+            "en": "VitaSun placeholder",
+            "ru": "Заглушка VitaSun"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fluidium",
+      "enabled": true,
+      "layout": "split-right",
+      "title": {
+        "en": "Fluidium",
+        "ru": "Fluidium"
+      },
+      "subtitle": {
+        "en": "Electronic Motion. Future Visions. No Fixed Coordinates.",
+        "ru": "Электронное движение. Образы будущего. Никаких фиксированных координат."
+      },
+      "text": {
+        "en": [
+          "Fluidium is the experimental electronic side of our creative universe.",
+          "Where VitaSun often moves toward songs, emotion, and personal stories, Fluidium takes a different path — toward rhythm, club energy, futuristic imagery, and the fusion of music with visual art.",
+          "It is a space where electronic sound can become part of a larger audiovisual idea.",
+          "One of Fluidium's projects, She From Japan, combines electronic music, cosmic themes, and visual storytelling, using contemporary generative technology to build its own futuristic world.",
+          "For Fluidium, there is no need to draw a strict line between music, video, and digital art.",
+          "They can all become parts of the same work.",
+          "Sound becomes image.",
+          "Image continues the music.",
+          "Technology becomes another creative instrument."
+        ],
+        "ru": [
+          "Fluidium — экспериментальная электронная сторона нашей творческой вселенной.",
+          "Если VitaSun чаще движется к песням, эмоциям и личным историям, Fluidium выбирает другой путь — ритм, клубную энергию, футуристические образы и слияние музыки с визуальным искусством.",
+          "Это пространство, где электронный звук может стать частью более масштабной аудиовизуальной идеи.",
+          "Один из проектов Fluidium — She From Japan — объединяет электронную музыку, космическую тематику и визуальное повествование, используя современные генеративные технологии для создания собственного футуристического мира.",
+          "Для Fluidium нет необходимости проводить строгую границу между музыкой, видео и цифровым искусством.",
+          "Всё это может стать частями одной работы.",
+          "Звук становится изображением.",
+          "Изображение продолжает музыку.",
+          "Технология становится ещё одним творческим инструментом."
+        ]
+      },
+      "media": [
+        {
+          "type": "image",
+          "source": "placeholder-fluidium.svg",
+          "alt": {
+            "en": "Fluidium placeholder",
+            "ru": "Заглушка Fluidium"
+          }
+        }
+      ]
+    }
+  ]
+}
