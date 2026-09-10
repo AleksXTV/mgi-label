@@ -1,0 +1,190 @@
+name: Build M.G.I. Records
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mgi-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and smoke-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22.19.0'
+          package-manager-cache: false
+
+      - name: Show tool versions
+        run: |
+          node --version
+          npm --version
+
+      - name: Check dependency lockfile
+        id: lockfile
+        shell: bash
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ steps.lockfile.outputs.present }}" = "true" ]; then
+            echo "package-lock.json found -> using npm ci"
+            npm ci --no-audit --no-fund
+          else
+            echo "WARNING: package-lock.json is absent -> using npm install"
+            echo "For fully reproducible future builds, download and commit the generated package-lock.json artifact."
+            npm install --no-audit --no-fund
+          fi
+
+      - name: Upload generated package-lock.json
+        if: steps.lockfile.outputs.present == 'false' && github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          path: package-lock.json
+          archive: false
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Validate runtime JSON
+        run: npm run check:data
+
+      - name: Build Nuxt production bundle
+        run: npm run build
+
+      - name: Verify production entry point
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f .output/server/index.mjs
+          echo "Found .output/server/index.mjs"
+
+      - name: Smoke-test production server
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          NODE_ENV=production \
+          HOST=127.0.0.1 \
+          PORT=3000 \
+          node .output/server/index.mjs > /tmp/mgi-records-server.log 2>&1 &
+          SERVER_PID=$!
+
+          cleanup() {
+            kill "$SERVER_PID" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+
+          READY=0
+          for i in $(seq 1 30); do
+            if curl --fail --silent --show-error http://127.0.0.1:3000/api/content/site > /tmp/site.json; then
+              READY=1
+              break
+            fi
+            sleep 1
+          done
+
+          if [ "$READY" -ne 1 ]; then
+            echo "Production server did not become ready. Log follows:"
+            cat /tmp/mgi-records-server.log
+            exit 1
+          fi
+
+          curl --fail --silent --show-error http://127.0.0.1:3000/ > /tmp/home.html
+          curl --fail --silent --show-error http://127.0.0.1:3000/services > /tmp/services.html
+
+          test -s /tmp/site.json
+          test -s /tmp/home.html
+          test -s /tmp/services.html
+
+          echo "Smoke test passed: /api/content/site, / and /services respond successfully."
+
+      - name: Create deployment ZIP files
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .ci-package
+          mkdir -p .ci-package/initial/mgi-records
+          mkdir -p .ci-package/update/mgi-records
+
+          cp -a .output .ci-package/initial/mgi-records/.output
+          cp -a data .ci-package/initial/mgi-records/data
+          cp README.md .ci-package/initial/mgi-records/README.md
+
+          cat > .ci-package/initial/mgi-records/DEPLOY.txt <<'TXT'
+          M.G.I. Records — initial deployment
+
+          Copy this directory to the Ubuntu server and run from its root:
+
+            NODE_ENV=production node .output/server/index.mjs
+
+          For future software updates, preserve the production data/ directory.
+          TXT
+
+          cp -a .output .ci-package/update/mgi-records/.output
+
+          cat > .ci-package/update/mgi-records/UPDATE.txt <<'TXT'
+          M.G.I. Records — application update
+
+          This archive intentionally contains only .output/.
+          Stop the existing Node service, replace the production .output/ directory,
+          keep the existing production data/ directory unchanged, and start the service again.
+          TXT
+
+          (
+            cd .ci-package/initial
+            zip -qr ../../mgi-records-initial.zip mgi-records
+          )
+
+          (
+            cd .ci-package/update
+            zip -qr ../../mgi-records-update.zip mgi-records
+          )
+
+          ls -lh mgi-records-initial.zip mgi-records-update.zip
+          unzip -tq mgi-records-initial.zip
+          unzip -tq mgi-records-update.zip
+
+      - name: Upload initial deployment ZIP
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          path: mgi-records-initial.zip
+          archive: false
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Upload update-only ZIP
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          path: mgi-records-update.zip
+          archive: false
+          retention-days: 14
+          if-no-files-found: error
