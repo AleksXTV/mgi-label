@@ -13,6 +13,11 @@ async function readJson(file) {
 const site = await readJson(resolve(root, 'site.json'))
 if (site) {
   if (site.schemaVersion !== 1) errors.push('site.json: schemaVersion must be 1')
+  for (const key of ['logo', 'favicon']) {
+    const name = site.branding?.[key]
+    if (!name) continue
+    try { await readFile(resolve(root, 'images', name)) } catch { errors.push(`site.json: missing branding ${key} image ${name}`) }
+  }
   const orders = new Set()
   const routes = new Set()
   for (const item of site.menu || []) {

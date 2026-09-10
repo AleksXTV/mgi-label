@@ -6,7 +6,7 @@ const props = defineProps<{ site: SiteConfig, open: boolean }>()
 const emit = defineEmits<{ close: [] }>()
 const siteRef = computed(() => props.site)
 const language = useLanguage(siteRef)
-const items = computed(() => [...props.site.menu].filter(x => x.enabled).sort((a,b) => a.order - b.order))
+const items = computed(() => [...props.site.menu].filter((item) => item.enabled).sort((a, b) => a.order - b.order))
 
 function closeOnEscape(event: KeyboardEvent) { if (event.key === 'Escape') emit('close') }
 onMounted(() => window.addEventListener('keydown', closeOnEscape))
@@ -27,7 +27,6 @@ onBeforeUnmount(() => window.removeEventListener('keydown', closeOnEscape))
               class="menu-link"
               @click="emit('close')"
             >
-              <span class="menu-index">{{ String(item.order).padStart(2, '0') }}</span>
               <span>{{ localize(item.title, language, props.site.defaultLanguage) }}</span>
             </NuxtLink>
           </nav>

@@ -13,11 +13,9 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-        { name: 'theme-color', content: '#191a1c' }
+        { name: 'theme-color', content: '#202126' },
+        { name: 'referrer', content: 'strict-origin-when-cross-origin' }
       ],
-      link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/brand/favicon.svg' }
-      ]
     }
   },
   nitro: {

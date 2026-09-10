@@ -26,8 +26,14 @@ export interface MenuItem {
   title: LocalizedString
 }
 
+export interface SiteBranding {
+  logo?: string
+  favicon?: string
+}
+
 export interface SiteConfig {
   schemaVersion: 1
+  branding?: SiteBranding
   defaultLanguage: string
   defaultTheme: string
   languages: SiteLanguage[]

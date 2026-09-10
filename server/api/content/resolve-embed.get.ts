@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
   try { url = new URL(raw) } catch { throw createError({ statusCode: 400, statusMessage: 'Invalid URL' }) }
   if (!hostAllowed(url.hostname)) throw createError({ statusCode: 400, statusMessage: 'Only Bandcamp URLs are supported by this resolver' })
   try {
-    const html = await $fetch<string>(url.toString(), { responseType: 'text', timeout: 5000, headers: { 'user-agent': 'M.G.I. Records embed resolver/1.0' } })
+    const html = await $fetch<string>(url.toString(), { responseType: 'text', timeout: 5000, headers: { 'user-agent': 'M.G.I. Records embed resolver/1.1' } })
     const tralbum = html.match(/data-tralbum="([^"]+)"/i)?.[1]
     if (!tralbum) throw new Error('Bandcamp metadata not found')
     const decoded = tralbum.replace(/&quot;/g, '"').replace(/&amp;/g, '&')

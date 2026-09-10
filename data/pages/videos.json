@@ -30,7 +30,7 @@
     {
       "id": "video-library",
       "enabled": true,
-      "layout": "video-grid",
+      "layout": "video-list",
       "title": {
         "en": "Videos",
         "ru": "Видео"

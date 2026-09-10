@@ -2,7 +2,7 @@ import type { ValidationIssue } from '../../shared/types'
 
 export const allowedLayouts = new Set([
   'hero', 'statement', 'editorial', 'split-left', 'split-right', 'media-wide',
-  'music-showcase', 'video-grid', 'contact-form'
+  'music-showcase', 'video-grid', 'video-list', 'contact-form'
 ])
 
 export const imageExtensions = new Set(['avif', 'webp', 'jpg', 'jpeg', 'png', 'apng', 'gif', 'svg'])
@@ -50,6 +50,15 @@ export function validateSite(value: unknown): ValidationIssue[] {
   const issues: ValidationIssue[] = []
   if (!isObj(value)) return [{ path: '$', message: 'must be an object' }]
   if (value.schemaVersion !== 1) issue(issues, 'schemaVersion', 'must equal 1')
+  if (value.branding != null) {
+    if (!isObj(value.branding)) issue(issues, 'branding', 'must be an object')
+    else {
+      for (const key of ['logo', 'favicon']) {
+        const filename = value.branding[key]
+        if (filename != null && (typeof filename !== 'string' || !isSafeImageFilename(filename))) issue(issues, `branding.${key}`, 'must be a safe image filename')
+      }
+    }
+  }
   if (typeof value.defaultLanguage !== 'string') issue(issues, 'defaultLanguage', 'must be a string')
   if (typeof value.defaultTheme !== 'string') issue(issues, 'defaultTheme', 'must be a string')
   const languages = Array.isArray(value.languages) ? value.languages : []

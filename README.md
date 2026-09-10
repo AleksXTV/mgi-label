@@ -1,4 +1,4 @@
-# M.G.I. Records v1.0
+# M.G.I. Records v1.1
 
 Production-oriented Nuxt 4 website for **M.G.I. Records**. The public site is a responsive bilingual editorial experience; mutable content, images, configuration, and messages live in the runtime `data/` directory and do not require a Nuxt rebuild.
 
@@ -6,19 +6,19 @@ Production-oriented Nuxt 4 website for **M.G.I. Records**. The public site is a 
 
 - Nuxt 4 + Vue 3 + TypeScript + Nitro server API.
 - HOME, ARTISTS, MUSIC, VIDEOS, SERVICES, ABOUT.
-- ENG/RUS selector stored in a cookie.
-- Dark/Light selector stored in a cookie.
+- ENG/RUS custom dropdown stored in a cookie.
+- Dark/Light custom dropdown stored in a cookie.
 - Runtime JSON content with a universal block/layout model.
 - `/configure` server-authenticated administration area.
 - Raw JSON editor with Format, Validate, Save and Paste Text utility.
 - Image upload/list/delete with 10 MB limit, file-name normalization, SVG safety screening, and reference warnings.
 - Contact requests saved to `data/messages.json` and then delivered to an array of Telegram recipients.
 - Admin message list with new/read state, detail view, delete and JSON export.
-- YouTube, Vimeo, Spotify, SoundCloud and Bandcamp URL handling.
+- YouTube, Vimeo, Spotify, SoundCloud and Bandcamp URL handling. YouTube embeds include explicit origin/referrer identification required by current YouTube player rules.
 - Lazy external players; only one managed external player is mounted at a time.
 - Fullscreen image viewer with preserved aspect ratio.
 - Basic SEO metadata, OpenGraph, `robots.txt` and runtime `sitemap.xml`.
-- Responsive editorial design with `prefers-reduced-motion` support.
+- Responsive editorial design with restrained multi-tone theme accents, rebalanced typography, and `prefers-reduced-motion` support.
 
 ## Requirements
 
@@ -74,7 +74,18 @@ This resolution occurs **at server runtime**, not during the StackBlitz build. T
 
 ## Content JSON
 
-`data/site.json` contains languages, themes and the ordered menu. Menu labels are independent from `route` and `page`.
+`data/site.json` contains branding, languages, themes and the ordered menu. Menu labels are independent from `route` and `page`.
+
+Branding uses ordinary runtime image filenames:
+
+```json
+"branding": {
+  "logo": "mgi_logo.svg",
+  "favicon": "mgi_favicon.svg"
+}
+```
+
+Both fields may point to uploaded `PNG`, `JPG/JPEG`, `WebP`, `AVIF`, `GIF/APNG` or `SVG` files in `data/images`. For example, after uploading your real logo through `/configure`, set `"logo": "mgi_logo.png"`. The same runtime mechanism is used for the favicon.
 
 Each page has:
 
@@ -88,7 +99,7 @@ Each page has:
 }
 ```
 
-Supported layouts in v1:
+Supported layouts in v1.1:
 
 ```text
 hero
@@ -99,6 +110,7 @@ split-right
 media-wide
 music-showcase
 video-grid
+video-list
 contact-form
 ```
 
@@ -158,7 +170,7 @@ The admin login uses a server-side in-memory session token stored in an HttpOnly
 
 Maximum upload size: **10 MB**.
 
-Accepted v1 formats:
+Accepted v1.1 formats:
 
 ```text
 AVIF, WebP, JPEG/JPG, PNG, APNG, GIF, SVG
@@ -210,14 +222,14 @@ A locally saved request is considered accepted even if Telegram is temporarily u
 
 Provider behavior:
 
-- YouTube: privacy-enhanced iframe URL; loads after click.
+- YouTube: standard embedded player loaded after click with `strict-origin-when-cross-origin` and a runtime `origin` parameter so the player receives current API-client identity information.
 - Vimeo: iframe after click.
 - Spotify: derived official embed URL after click.
 - SoundCloud: widget iframe after click.
 - Bandcamp: server attempts to resolve a normal Bandcamp track/album URL to its embedded player; if it cannot, the original page opens externally.
 - Unknown external URL: opens as an external link.
 
-Only one managed external iframe is mounted at a time, so starting another card removes the previous iframe and stops its playback. Direct HTML audio uses the same global coordinator.
+Only one managed external iframe is mounted at a time, so starting another card removes the previous iframe and stops its playback. Direct HTML audio uses the same global coordinator. The default VIDEOS page uses the vertical `video-list` layout; `video-grid` remains available if a two-column presentation is wanted later.
 
 ## Production build
 
@@ -350,3 +362,8 @@ This is a small single-admin v1 implementation, not an enterprise CMS.
 ## Initial content
 
 The HOME, ARTISTS, SERVICES and ABOUT English copy comes from the supplied `Site_content.odt`; a Russian version is included. MUSIC and VIDEOS contain temporary public demo media. Placeholder SVG artwork is intentionally lightweight and can be replaced later.
+
+
+## Version 1.1 notes
+
+See `CHANGELOG.md` for the complete list of UI, YouTube, branding and typography fixes applied to the supplied GitHub-based v1.0 project. The `.github/workflows/build.yml` workflow is retained.

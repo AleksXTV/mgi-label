@@ -12,8 +12,10 @@ if (error.value) {
 
 const site = computed(() => data.value?.site)
 const page = computed(() => data.value?.page)
+const menuItem = computed(() => data.value?.menuItem)
 const language = useLanguage(site)
 const fallback = computed(() => site.value?.defaultLanguage || 'en')
+const pageLabel = computed(() => localize(menuItem.value?.title, language.value, fallback.value))
 const siteUrl = useRuntimeConfig().public.siteUrl as string
 const requestUrl = useRequestURL()
 const canonicalOrigin = computed(() => siteUrl || requestUrl.origin)
@@ -42,13 +44,13 @@ useHead(() => ({
 
 <template>
   <div v-if="page && site" class="page-composition">
+    <div class="page-label">{{ pageLabel }}</div>
     <BlockRenderer
-      v-for="(block, index) in page.blocks.filter(x => x.enabled)"
+      v-for="block in page.blocks.filter((item) => item.enabled)"
       :key="block.id"
       :block="block"
       :language="language"
       :fallback="fallback"
-      :index="index"
     />
   </div>
 </template>

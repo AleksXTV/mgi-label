@@ -2,7 +2,7 @@
 import type { PageBlock } from '#shared/types'
 import { localize, localizeText } from '~/utils/content'
 
-const props = defineProps<{ block: PageBlock, language: string, fallback: string, index: number }>()
+const props = defineProps<{ block: PageBlock, language: string, fallback: string }>()
 const title = computed(() => localize(props.block.title, props.language, props.fallback))
 const subtitle = computed(() => localize(props.block.subtitle, props.language, props.fallback))
 const paragraphs = computed(() => localizeText(props.block.text, props.language, props.fallback))
@@ -11,9 +11,7 @@ const actions = computed(() => props.block.actions || [])
 </script>
 
 <template>
-  <section class="content-block" :class="[`layout-${block.layout}`, `block-${index + 1}`]" :data-block="block.id">
-    <div class="block-index">{{ String(index + 1).padStart(2, '0') }}</div>
-
+  <section class="content-block" :class="`layout-${block.layout}`" :data-block="block.id">
     <div class="block-copy">
       <h2 v-if="title">{{ title }}</h2>
       <p v-if="subtitle" class="block-subtitle">{{ subtitle }}</p>

@@ -1,5 +1,9 @@
 {
   "schemaVersion": 1,
+  "branding": {
+    "logo": "mgi_logo.svg",
+    "favicon": "mgi_favicon.svg"
+  },
   "defaultLanguage": "en",
   "defaultTheme": "dark",
   "languages": [

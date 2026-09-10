@@ -9,6 +9,10 @@ const { activeId, activate } = useMediaCoordinator()
 const active = computed(() => activeId.value === props.id)
 const resolving = ref(false)
 const resolvedBandcamp = ref<string | null>(null)
+const pageOrigin = ref('')
+
+onMounted(() => { pageOrigin.value = window.location.origin })
+
 const title = computed(() => localize(props.item.title, props.language, props.fallback) || provider.value.toUpperCase())
 const description = computed(() => {
   const raw: any = props.item.description
@@ -20,7 +24,11 @@ const youtube = computed(() => youtubeId(props.item.source))
 const preview = computed(() => youtube.value ? `https://i.ytimg.com/vi/${youtube.value}/hqdefault.jpg` : '')
 
 const iframeUrl = computed(() => {
-  if (provider.value === 'youtube' && youtube.value) return `https://www.youtube-nocookie.com/embed/${youtube.value}?autoplay=1&rel=0&enablejsapi=1`
+  if (provider.value === 'youtube' && youtube.value) {
+    const params = new URLSearchParams({ autoplay: '1', rel: '0', enablejsapi: '1', playsinline: '1' })
+    if (pageOrigin.value) params.set('origin', pageOrigin.value)
+    return `https://www.youtube.com/embed/${youtube.value}?${params.toString()}`
+  }
   if (provider.value === 'vimeo') {
     const id = vimeoId(props.item.source)
     return id ? `https://player.vimeo.com/video/${id}?autoplay=1` : null
@@ -61,6 +69,7 @@ async function play() {
         :src="iframeUrl"
         :title="title"
         loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
         allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
         allowfullscreen
       />
