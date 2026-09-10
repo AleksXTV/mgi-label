@@ -54,6 +54,21 @@ jobs:
             echo "WARNING: pnpm-lock.yaml is absent; first run will generate it."
           fi
 
+      - name: Allow required dependency build scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # pnpm 11 blocks dependency lifecycle/build scripts unless explicitly approved.
+          # Nuxt depends on esbuild, whose install script prepares/verifies its native binary.
+          # Approve ONLY esbuild; do not globally enable dependency scripts.
+          cat > pnpm-workspace.yaml <<'YAML'
+          allowBuilds:
+            esbuild: true
+          YAML
+
+          cat pnpm-workspace.yaml
+
       - name: Install dependencies
         shell: bash
         run: |
