@@ -3,13 +3,9 @@ name: Build M.G.I. Records
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
   pull_request:
-    branches:
-      - main
-      - master
+    branches: [main, master]
 
 permissions:
   contents: read
@@ -28,25 +24,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      # pnpm/setup v2 installs pnpm as a standalone binary and installs Node itself.
+      # This avoids npm/Arborist entirely during dependency installation.
+      - name: Setup pnpm and Node.js
+        uses: pnpm/setup@v2
         with:
-          node-version: '22.19.0'
-          package-manager-cache: false
+          version: '11.0.0'
+          runtime: 'node@22.19.0'
+          install: false
+          cache: false
 
       - name: Show tool versions
+        shell: bash
         run: |
+          set -euo pipefail
           node --version
-          npm --version
+          pnpm --version
 
       - name: Check dependency lockfile
         id: lockfile
         shell: bash
         run: |
-          if [ -f package-lock.json ]; then
+          set -euo pipefail
+          if [ -f pnpm-lock.yaml ]; then
             echo "present=true" >> "$GITHUB_OUTPUT"
+            echo "pnpm-lock.yaml found -> reproducible install"
           else
             echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "WARNING: pnpm-lock.yaml is absent; first run will generate it."
           fi
 
       - name: Install dependencies
@@ -54,28 +59,25 @@ jobs:
         run: |
           set -euo pipefail
           if [ "${{ steps.lockfile.outputs.present }}" = "true" ]; then
-            echo "package-lock.json found -> using npm ci"
-            npm ci --no-audit --no-fund
+            pnpm install --frozen-lockfile
           else
-            echo "WARNING: package-lock.json is absent -> using npm install"
-            echo "For fully reproducible future builds, download and commit the generated package-lock.json artifact."
-            npm install --no-audit --no-fund
+            pnpm install --no-frozen-lockfile
           fi
 
-      - name: Upload generated package-lock.json
+      - name: Upload generated pnpm-lock.yaml
         if: steps.lockfile.outputs.present == 'false' && github.event_name != 'pull_request'
         uses: actions/upload-artifact@v7
         with:
-          path: package-lock.json
-          archive: false
+          name: pnpm-lock
+          path: pnpm-lock.yaml
           retention-days: 14
           if-no-files-found: error
 
       - name: Validate runtime JSON
-        run: npm run check:data
+        run: pnpm run check:data
 
       - name: Build Nuxt production bundle
-        run: npm run build
+        run: pnpm run build
 
       - name: Verify production entry point
         shell: bash
@@ -102,7 +104,8 @@ jobs:
 
           READY=0
           for i in $(seq 1 30); do
-            if curl --fail --silent --show-error http://127.0.0.1:3000/api/content/site > /tmp/site.json; then
+            if curl --fail --silent --show-error \
+              http://127.0.0.1:3000/api/content/site > /tmp/site.json; then
               READY=1
               break
             fi
@@ -167,16 +170,16 @@ jobs:
             zip -qr ../../mgi-records-update.zip mgi-records
           )
 
-          ls -lh mgi-records-initial.zip mgi-records-update.zip
           unzip -tq mgi-records-initial.zip
           unzip -tq mgi-records-update.zip
+          ls -lh mgi-records-initial.zip mgi-records-update.zip
 
       - name: Upload initial deployment ZIP
         if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v7
         with:
+          name: mgi-records-initial
           path: mgi-records-initial.zip
-          archive: false
           retention-days: 14
           if-no-files-found: error
 
@@ -184,7 +187,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v7
         with:
+          name: mgi-records-update
           path: mgi-records-update.zip
-          archive: false
           retention-days: 14
           if-no-files-found: error
